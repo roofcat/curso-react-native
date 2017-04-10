@@ -7,13 +7,14 @@ import {
   Button,
   ListView,
   TouchableHighlight,
+  Alert,
 } from 'react-native';
 
 export default class AwesomeProject extends Component {
 
   constructor() {
     super();
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 != r2 });
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([])
     }
@@ -46,9 +47,13 @@ export default class AwesomeProject extends Component {
     );
   }
 
+  pressCell(dataRow) {
+    Alert.alert(dataRow)
+  }
+
   renderRow(dataRow) {
     return (
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => {this.pressCell(dataRow)}}>
         <View style={styles.cell}>
           <Text>{dataRow}</Text>
         </View>
