@@ -4,6 +4,7 @@ import {
   Text,
   View,
   TouchableHighlight,
+  Navigator,
 } from 'react-native';
 
 export class DetailViewMovie extends Component {

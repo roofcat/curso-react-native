@@ -8,14 +8,13 @@ import {
   ListView,
   TouchableHighlight,
   AlertIOS,
-  NavigatorIOS,
   Navigator,
 } from 'react-native';
 
 import ListViewMovie from './components/ListViewMovie'
 import DetailViewMovie from './components/DetailViewMovie'
 
-export default class ReactApp extends Component {
+export default class AwesomeProject extends Component {
   _renderScene(route, navigator) {
     var globalProps = {navigator}
 
@@ -47,7 +46,7 @@ export default class ReactApp extends Component {
 
   render() {
     return (
-      <NavigatorIOS
+      <Navigator
         initialRoute={{ident: 'ListViewMovie'}}
         renderScene={this._renderScene}
         configureScene={this._configureScene}
@@ -84,4 +83,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('ReactApp', () => ReactApp);
+AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

@@ -4,6 +4,7 @@ import {
   View,
   ListView,
   TouchableHighlight,
+  Navigator,
 } from 'react-native';
 
 import DetailViewMovie from './DetailViewMovie'
