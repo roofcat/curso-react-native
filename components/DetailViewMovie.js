@@ -4,10 +4,9 @@ import {
   Text,
   View,
   TouchableHighlight,
-  Navigator,
 } from 'react-native';
 
-export class DetailViewMovie extends Component {
+export default class DetailViewMovie extends Component {
   _goBack() {
     this.props.navigator.pop()
   }

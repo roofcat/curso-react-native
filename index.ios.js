@@ -19,13 +19,13 @@ export default class AwesomeProject extends Component {
     var globalProps = {navigator}
 
     switch (route.ident) {
-      case 'ListViewMovie':
+      case "ListViewMovie":
         return (
           <ListViewMovie
             {...globalProps}
           />
         )
-      case 'DetailViewMovie':
+      case "DetailViewMovie":
       return (
         <DetailViewMovie
           {...globalProps}
@@ -37,7 +37,7 @@ export default class AwesomeProject extends Component {
 
   _configureScene(route, routeStack)  {
     switch (route.ident) {
-      case 'ListViewMovie':
+      case "DetailViewMovie":
         return Navigator.SceneConfigs.FloatFromBottom
       default:
         return Navigator.SceneConfigs.PushFromRight
@@ -47,7 +47,7 @@ export default class AwesomeProject extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ident: 'ListViewMovie'}}
+        initialRoute={{ ident: "ListViewMovie" }}
         renderScene={this._renderScene}
         configureScene={this._configureScene}
         style={{flex: 1}}

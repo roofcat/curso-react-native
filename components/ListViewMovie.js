@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {
+  StyleSheet,
   Text,
   View,
   ListView,
   TouchableHighlight,
-  Navigator,
 } from 'react-native';
 
 import DetailViewMovie from './DetailViewMovie'
 
-export class ListViewMovie extends Component {
+export default class ListViewMovie extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -39,7 +39,7 @@ export class ListViewMovie extends Component {
         <ListView
           enableEmptySections={true}
           dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
         />
       </View>
     );
@@ -63,3 +63,20 @@ export class ListViewMovie extends Component {
   }
 
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    paddingTop: 30,
+  },
+  cell: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'grey',
+    paddingTop: 20,
+    paddingBottom: 20,
+    alignItems: 'center',
+  }
+});
