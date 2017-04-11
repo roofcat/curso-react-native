@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import DetailViewMovie from './DetailViewMovie'
+import NavBar from './NavBar'
 
 export default class ListViewMovie extends Component {
   constructor() {
@@ -36,6 +37,10 @@ export default class ListViewMovie extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <NavBar
+          titleNavbar="List of Movies"
+          bg="#CECECE"
+        />
         <ListView
           enableEmptySections={true}
           dataSource={this.state.dataSource}

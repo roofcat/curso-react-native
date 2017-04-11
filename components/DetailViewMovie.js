@@ -6,6 +6,8 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+import NavBar from './NavBar'
+
 export default class DetailViewMovie extends Component {
   _goBack() {
     this.props.navigator.pop()
@@ -14,9 +16,10 @@ export default class DetailViewMovie extends Component {
   render() {
     return (
       <View style={styles.containerDetail}>
-        <TouchableHighlight onPress={() => this._goBack()}>
-          <Text>Back</Text>
-        </TouchableHighlight>
+        <NavBar
+          pressedButton={() => this._goBack()}
+          textButton="Back"
+        />
         <Text>{this.props.data}</Text>
       </View>
     );
