@@ -8,9 +8,24 @@ import {
   ListView,
   TouchableHighlight,
   AlertIOS,
+  NavigatorIOS,
 } from 'react-native';
 
-export default class AwesomeProject extends Component {
+export default class ReactApp extends Component {
+  render() {
+    return (
+      <NavigatorIOS
+        initialRoute={{
+          component: ListViewMovie,
+          title: 'Lista de Peliculas'
+        }}
+        style={{flex: 1}}
+      />
+    );
+  }
+}
+
+export class ListViewMovie extends Component {
 
   constructor() {
     super();
@@ -48,7 +63,11 @@ export default class AwesomeProject extends Component {
   }
 
   pressCell(dataRow) {
-    AlertIOS.alert(dataRow)
+    this.props.navigator.push({
+      component: DetailViewMovie,
+      passProps: {dataRow},
+      title: 'Detalles de la película'
+    })
   }
 
   renderRow(dataRow) {
@@ -63,7 +82,20 @@ export default class AwesomeProject extends Component {
 
 }
 
+export class DetailViewMovie extends Component {
+  render() {
+    return (
+      <View style={styles.containerDetail}>
+        <Text>{this.props.dataRow}</Text>
+      </View>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
+  containerDetail: {
+    paddingTop: 80
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -90,4 +122,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+AppRegistry.registerComponent('ReactApp', () => ReactApp);
