@@ -16,6 +16,10 @@ export default class DetailViewMovie extends Component {
   render() {
     return (
       <View style={[styles.containerDetails, border('red')]}>
+        <NavBar
+        pressedButton={() => this._goBack()}
+        textButton="Back"
+        />
         <View style={[styles.containerChildOne, border('blue')]}>
           <Text>{this.props.data}</Text>
         </View>
