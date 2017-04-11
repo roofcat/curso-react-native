@@ -37,10 +37,17 @@ export default class ListViewMovie extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <NavBar
-          titleNavbar="List of Movies"
-          bg="#CECECE"
-        />
+        <View style={styles.navigationBar}>
+          <Text style={styles.navigatorButton}>
+            Add
+          </Text>
+          <Text style={styles.navigatorTitle}>
+            List of Movies
+          </Text>
+          <Text style={styles.navigatorButton}>
+            Like
+          </Text>
+        </View>
         <ListView
           enableEmptySections={true}
           dataSource={this.state.dataSource}
@@ -72,10 +79,24 @@ export default class ListViewMovie extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  navigationBar: {
+    flexDirection: 'row',
+    paddingTop: 30,
+    paddingBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    paddingTop: 30,
+    backgroundColor: 'orange',
+  },
+  navigatorButton: {
+    flex: 1,
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
+  navigatorTitle: {
+    flex: 3,
+    textAlign: 'center',
+    color: '#FFFFFF',
   },
   cell: {
     borderBottomWidth: 1,
